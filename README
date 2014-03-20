@@ -52,9 +52,12 @@ Synopsis
    location = /login {
        eval $uid {
            proxy_set_header Host $http_host;
+           
            # in case of POST-request NGinx will use GET-request
            # so we need to make subrequest a little bit more valid
            proxy_set_header Content-Length "";
+           proxy_set_header Accept-Encoding "";
+           
            proxy_pass http://auth_backend;
        }
        if ($uid !~ '^\d+$') {
