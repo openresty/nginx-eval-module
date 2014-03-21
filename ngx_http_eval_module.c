@@ -275,6 +275,14 @@ ngx_http_eval_handler(ngx_http_request_t *r)
 
     sr->discard_body = 1;
 
+    /* XXX we don't want to send POST headers in subrequest */
+    sr->headers_in.content_length_n = 0;
+    sr->headers_in.content_length = NULL;
+    sr->headers_in.content_type = NULL;
+#if (NGX_HTTP_GZIP)
+    sr->headers_in.accept_encoding = NULL;
+#endif
+
     ctx->in_progress = 1;
 
     /* XXX we don't allow eval in subrequests, i think? */
