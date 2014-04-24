@@ -736,8 +736,14 @@ ngx_http_eval_block(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     clcf->noregex = 1;
 
     cscf = ngx_http_conf_get_module_srv_conf(cf, ngx_http_core_module);
+    if (cscf == NULL || cscf->ctx == NULL) {
+        return NGX_CONF_ERROR;
+    }
 
     rclcf = cscf->ctx->loc_conf[ngx_http_core_module.ctx_index];
+    if (rclcf == NULL) {
+        return NGX_CONF_ERROR;
+    }
 
     if (ngx_http_add_location(cf, &rclcf->locations, clcf) != NGX_OK) {
         return NGX_CONF_ERROR;
