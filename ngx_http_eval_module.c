@@ -562,7 +562,7 @@ ngx_http_eval_create_loc_conf(ngx_conf_t *cf)
     conf = ngx_pcalloc(cf->pool, sizeof(ngx_http_eval_loc_conf_t));
 
     if (conf == NULL) {
-        return NGX_CONF_ERROR;
+        return NULL;
     }
 
     conf->escalate = NGX_CONF_UNSET;
