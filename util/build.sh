@@ -7,7 +7,7 @@ home=~
 version=$1
 force=$2
 disable_pcre2=--without-pcre2
-answer=`openresty/util/ver-ge "$version" 1.25.1`
+answer=`../openresty/util/ver-ge "$version" 1.25.1`
 if [ "$answer" = "N" ]; then
     disable_pcre2="";
 fi
