@@ -167,6 +167,11 @@ Nginx Compatibility
 
 The following versions of Nginx should work with this module:
 
+* 1.29.x (last tested: 1.29.2)
+* 1.27.x (last tested: 1.27.1)
+* 1.25.x (last tested: 1.25.4)
+* 1.19.x (last tested: 1.19.1)
+* 1.17.x (last tested: 1.17.3)
 * 1.9.x (last tested: 1.9.7)
 * 1.8.x
 * 1.7.x (last tested: 1.7.7)
